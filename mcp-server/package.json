@@ -1,5 +1,5 @@
 {
-  "name": "@miyami/pdf-tool-mcp-server",
+  "name": "@ankush_thxkur/miyami-pdf-tool-mcp-server",
   "version": "1.0.0",
   "description": "MCP Server for Miyami PDF Tool - Advanced PDF operations for Claude Desktop",
   "type": "module",
@@ -11,7 +11,8 @@
     "build": "tsc && chmod +x dist/index.js",
     "dev": "tsc --watch",
     "start": "node dist/index.js",
-    "test": "node dist/index.js"
+    "test": "node dist/index.js",
+    "prepublishOnly": "npm run build"
   },
   "keywords": [
     "mcp",
@@ -19,10 +20,34 @@
     "pdf",
     "pdf-generation",
     "claude",
-    "ai"
+    "ai",
+    "miyami",
+    "pdf-tool",
+    "pdf-api",
+    "document-generation"
   ],
-  "author": "Miyami PDF Tool",
+  "author": "Ankush Thakur <ankushthakur2007@gmail.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ankushthakur2007/miyami-pdf-mcptool.git",
+    "directory": "mcp-server"
+  },
+  "homepage": "https://github.com/ankushthakur2007/miyami-pdf-mcptool#readme",
+  "bugs": {
+    "url": "https://github.com/ankushthakur2007/miyami-pdf-mcptool/issues"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "TESTING.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.22.0",
     "zod": "^3.25.76",

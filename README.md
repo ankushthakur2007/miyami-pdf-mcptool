@@ -1,6 +1,19 @@
 # Miyami PDF Tool
 
+[![npm version](https://img.shields.io/npm/v/@ankush_thxkur/miyami-pdf-tool-mcp-server)](https://www.npmjs.com/package/@ankush_thxkur/miyami-pdf-tool-mcp-server)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 A production-ready SaaS platform for generating PDFs from HTML, Markdown, text, and URLs with API key management, rate limiting, and cloud storage.
+
+## 🚀 Quick Start with MCP
+
+Use Miyami PDF Tool directly in Claude Desktop:
+
+```bash
+npx @ankush_thxkur/miyami-pdf-tool-mcp-server
+```
+
+See [MCP Server Documentation](./mcp-server/README.md) for setup instructions.
 
 ## Features
 

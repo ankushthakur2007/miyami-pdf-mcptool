@@ -1,8 +1,23 @@
-# 🎉 MCP Server Setup Complete!
+# 🎉 MCP Server Published to npm!
 
-Your Miyami PDF Tool MCP Server has been created and is ready to use with Claude Desktop.
+[![npm version](https://img.shields.io/npm/v/@ankush_thxkur/miyami-pdf-tool-mcp-server)](https://www.npmjs.com/package/@ankush_thxkur/miyami-pdf-tool-mcp-server)
 
-## ✅ What's Been Created
+Your Miyami PDF Tool MCP Server is now available on npm and ready to use with Claude Desktop.
+
+## 📦 Installation
+
+```bash
+# Use with npx (no installation required)
+npx @ankush_thxkur/miyami-pdf-tool-mcp-server
+
+# Or install globally
+npm install -g @ankush_thxkur/miyami-pdf-tool-mcp-server
+pdf-mcp-server
+```
+
+**NPM Package**: [@ankush_thxkur/miyami-pdf-tool-mcp-server](https://www.npmjs.com/package/@ankush_thxkur/miyami-pdf-tool-mcp-server)
+
+## ✅ What's Included
 
 ### MCP Server Package (`/mcp-server/`)
 - ✅ **11 PDF Tools** for Claude Desktop
@@ -66,12 +81,29 @@ npm run build
 
 **Windows:** Edit `%APPDATA%\Claude\claude_desktop_config.json`
 
-Add this configuration:
+**Using NPM (Recommended):**
 
 ```json
 {
   "mcpServers": {
-    "pdf-saas": {
+    "miyami-pdf": {
+      "command": "npx",
+      "args": ["@ankush_thxkur/miyami-pdf-tool-mcp-server"],
+      "env": {
+        "PDF_API_BASE_URL": "http://localhost:3000",
+        "PDF_API_KEY": "sk_live_your_copied_key_here"
+      }
+    }
+  }
+}
+```
+
+**Using Local Installation:**
+
+```json
+{
+  "mcpServers": {
+    "miyami-pdf": {
       "command": "node",
       "args": ["/Users/ankushthakur/developer/pdf-saas/mcp-server/dist/index.js"],
       "env": {
@@ -84,8 +116,9 @@ Add this configuration:
 ```
 
 **⚠️ Important:**
-- Replace the path with your **actual absolute path**
 - Replace `sk_live_your_copied_key_here` with your **actual API key**
+- For local installation, replace the path with your **actual absolute path**
+- For production, update `PDF_API_BASE_URL` to your deployed URL
 
 **Then restart Claude Desktop.**
 

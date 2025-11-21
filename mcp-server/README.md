@@ -1,6 +1,36 @@
 # Miyami PDF Tool - MCP Server
 
+[![npm version](https://img.shields.io/npm/v/@ankush_thxkur/miyami-pdf-tool-mcp-server)](https://www.npmjs.com/package/@ankush_thxkur/miyami-pdf-tool-mcp-server)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 Advanced PDF generation and manipulation server for Claude Desktop using the Model Context Protocol (MCP).
+
+## 📦 Installation
+
+### NPM (Recommended)
+
+The easiest way to use this MCP server:
+
+```bash
+# No installation required - use with npx
+npx @ankush_thxkur/miyami-pdf-tool-mcp-server
+
+# Or install globally
+npm install -g @ankush_thxkur/miyami-pdf-tool-mcp-server
+pdf-mcp-server
+```
+
+### From Source
+
+Clone and build from source:
+
+```bash
+git clone https://github.com/ankushthakur2007/miyami-pdf-mcptool.git
+cd miyami-pdf-mcptool/mcp-server
+npm install
+npm run build
+npm start
+```
 
 ## Features
 
@@ -23,11 +53,57 @@ Advanced PDF generation and manipulation server for Claude Desktop using the Mod
 
 ## Quick Start
 
-### 1. Prerequisites
+### 1. Setup API Credentials
 
-- Node.js 18+ installed
-- PDF SaaS platform running (see main README)
-- API key from the dashboard
+You need an API key from Miyami PDF Tool:
+1. Sign up at your deployed instance
+2. Navigate to Dashboard → API Keys
+3. Create a new API key
+4. Save the key securely
+
+### 2. Configure Claude Desktop
+
+Add to your Claude Desktop configuration (`~/Library/Application Support/Claude/claude_desktop_config.json` on macOS):
+
+**Using NPM (Recommended):**
+```json
+{
+  "mcpServers": {
+    "miyami-pdf": {
+      "command": "npx",
+      "args": [
+        "@ankush_thxkur/miyami-pdf-tool-mcp-server"
+      ],
+      "env": {
+        "API_KEY": "your-api-key-here",
+        "API_BASE_URL": "https://your-deployment-url.com/api"
+      }
+    }
+  }
+}
+```
+
+**Using Local Installation:**
+```json
+{
+  "mcpServers": {
+    "miyami-pdf": {
+      "command": "node",
+      "args": [
+        "/path/to/miyami-pdf-mcptool/mcp-server/dist/index.js"
+      ],
+      "env": {
+        "API_KEY": "your-api-key-here",
+        "API_BASE_URL": "http://localhost:3000/api"
+      }
+    }
+  }
+}
+```
+
+### 3. Restart Claude Desktop
+
+Quit and reopen Claude Desktop to load the MCP server.
 
 ### 2. Install Dependencies
 
