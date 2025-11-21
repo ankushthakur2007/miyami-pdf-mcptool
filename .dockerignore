@@ -1,0 +1,46 @@
+# Dependencies
+node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Next.js
+.next
+out
+dist
+
+# Testing
+coverage
+.nyc_output
+
+# Misc
+.DS_Store
+*.pem
+.env*.local
+.vscode
+.idea
+
+# Git
+.git
+.gitignore
+
+# Documentation
+*.md
+!README.md
+
+# Development files
+.prettierrc
+.eslintrc.json
+tsconfig.json
+tailwind.config.ts
+postcss.config.mjs
+
+# MCP Server
+mcp-server
+
+# Deployment docs
+DEPLOYMENT.md
+SETUP_GUIDE.md
+PROJECT_SUMMARY.md
+CHECKLIST.md
+MCP_SERVER_SUMMARY.md
