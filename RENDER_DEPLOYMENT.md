@@ -40,6 +40,8 @@ This uses the `render.yaml` file for automatic setup.
    | `NEXT_PUBLIC_APP_URL` | `https://your-app-name.onrender.com` | Will be provided after creation |
    | `API_KEY_ENCRYPTION_SECRET` | Auto-generated | Render generates this automatically |
 
+   **Important**: These environment variables are used at **runtime** only. The Docker build uses placeholder values and doesn't require your actual secrets during the build phase. Your real credentials are injected when the container starts.
+
 4. **Deploy**:
    - Click **Apply**
    - Render will build and deploy your app
@@ -168,12 +170,21 @@ Update your Claude Desktop config to use production URL:
 
 ### Build Fails
 
-**Issue**: Docker build timeout or fails
+**Issue**: Docker build fails with "module-not-found" errors
+
+**Solution**:
+- ✅ **Already Fixed**: Dockerfile uses build args with placeholder values
+- Environment variables are NOT needed during build
+- Real credentials are injected at runtime only
+- If still failing, check Render build logs for syntax errors
+
+**Issue**: Docker build timeout or other build errors
 
 **Solution**:
 - Check Dockerfile syntax
 - Verify all dependencies in package.json
 - Check Render build logs for specific errors
+- Ensure `output: 'standalone'` is set in `next.config.ts`
 
 ### Puppeteer Issues
 
