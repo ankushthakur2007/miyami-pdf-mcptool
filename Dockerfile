@@ -46,8 +46,21 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-# Build Next.js
-ENV NEXT_TELEMETRY_DISABLED=1
+# Build args for Next.js build (placeholders - actual values set at runtime)
+ARG NEXT_PUBLIC_SUPABASE_URL=https://placeholder.supabase.co
+ARG NEXT_PUBLIC_SUPABASE_ANON_KEY=placeholder-anon-key
+ARG SUPABASE_SERVICE_ROLE_KEY=placeholder-service-key
+ARG API_KEY_ENCRYPTION_SECRET=placeholder-encryption-secret
+ARG NEXT_PUBLIC_APP_URL=http://localhost:3000
+
+# Set env vars for build
+ENV NEXT_TELEMETRY_DISABLED=1 \
+    NEXT_PUBLIC_SUPABASE_URL=$NEXT_PUBLIC_SUPABASE_URL \
+    NEXT_PUBLIC_SUPABASE_ANON_KEY=$NEXT_PUBLIC_SUPABASE_ANON_KEY \
+    SUPABASE_SERVICE_ROLE_KEY=$SUPABASE_SERVICE_ROLE_KEY \
+    API_KEY_ENCRYPTION_SECRET=$API_KEY_ENCRYPTION_SECRET \
+    NEXT_PUBLIC_APP_URL=$NEXT_PUBLIC_APP_URL
+
 RUN npm run build
 
 # Runner stage
