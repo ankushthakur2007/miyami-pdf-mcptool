@@ -26,12 +26,12 @@ export async function GET(req: NextRequest) {
       .eq('user_id', user.id)
 
     // Get total storage
-    const { data: pdfsData } = await supabase
+    const { data: pdfsData } = await (supabase as any)
       .from('pdfs')
       .select('file_size')
       .eq('user_id', user.id)
 
-    const totalStorageBytes = pdfsData?.reduce((sum, pdf) => sum + (pdf.file_size || 0), 0) || 0
+    const totalStorageBytes = (pdfsData as any[] | undefined)?.reduce((sum, pdf) => sum + (pdf.file_size || 0), 0) || 0
 
     // Get requests in last 24 hours
     const oneDayAgo = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString()
@@ -58,14 +58,14 @@ export async function GET(req: NextRequest) {
       .gte('created_at', thirtyDaysAgo)
 
     // Get top endpoints
-    const { data: usageData } = await supabase
+    const { data: usageData } = await (supabase as any)
       .from('api_usage')
       .select('endpoint')
       .eq('user_id', user.id)
       .limit(1000)
 
     const endpointCounts: { [key: string]: number } = {}
-    usageData?.forEach(item => {
+    ;(usageData as any[] | undefined)?.forEach(item => {
       endpointCounts[item.endpoint] = (endpointCounts[item.endpoint] || 0) + 1
     })
 

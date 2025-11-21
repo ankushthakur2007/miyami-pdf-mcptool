@@ -60,7 +60,7 @@ export function extractApiKey(request: Request): string | null {
  * Update API key last used timestamp
  */
 export async function updateApiKeyUsage(apiKeyId: string): Promise<void> {
-  const supabase = createServiceClient()
+  const supabase = createServiceClient() as any
 
   // Get current count and increment
   const { data: currentData } = await supabase
@@ -76,8 +76,8 @@ export async function updateApiKeyUsage(apiKeyId: string): Promise<void> {
     .update({
       last_used_at: new Date().toISOString(),
       total_requests: newCount,
-    } as any)
-    .eq('id', apiKeyId as any)
+    })
+    .eq('id', apiKeyId)
 }
 
 /**

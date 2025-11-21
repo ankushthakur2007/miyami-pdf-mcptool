@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from 'next/server'
 
 export async function DELETE(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const supabase = await createClient()
@@ -17,7 +17,7 @@ export async function DELETE(
       )
     }
 
-    const keyId = params.id
+    const { id: keyId } = await params
 
     // Use service client to delete the key
     const serviceSupabase = createServiceClient()
@@ -49,7 +49,7 @@ export async function DELETE(
 
 export async function PATCH(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const supabase = await createClient()
@@ -62,19 +62,19 @@ export async function PATCH(
       )
     }
 
-    const keyId = params.id
+    const { id: keyId } = await params
     const body = await req.json()
 
     // Use service client to update the key
-    const serviceSupabase = createServiceClient()
+    const serviceSupabase = createServiceClient() as any
     const { data, error } = await serviceSupabase
       .from('api_keys')
       .update({
         is_active: body.is_active,
         name: body.name,
-      } as any)
-      .eq('id', keyId as any)
-      .eq('user_id', user.id as any)
+      })
+      .eq('id', keyId)
+      .eq('user_id', user.id)
       .select()
       .single()
 

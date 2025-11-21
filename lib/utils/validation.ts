@@ -71,7 +71,7 @@ export const ExtractContentSchema = z.object({
 // API Key Schemas
 export const CreateApiKeySchema = z.object({
   name: z.string().min(1).max(100),
-  rate_limit_per_hour: z.number().min(1).max(10000).default(100),
+  rate_limit_per_hour: z.number().min(1).max(10000),
 })
 
 // Auth Schemas
