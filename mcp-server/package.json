@@ -1,7 +1,7 @@
 {
-  "name": "@pdf-saas/mcp-server",
+  "name": "@miyami/pdf-tool-mcp-server",
   "version": "1.0.0",
-  "description": "MCP Server for AI-Powered PDF Generation - Advanced PDF operations for Claude Desktop",
+  "description": "MCP Server for Miyami PDF Tool - Advanced PDF operations for Claude Desktop",
   "type": "module",
   "main": "dist/index.js",
   "bin": {
@@ -21,7 +21,7 @@
     "claude",
     "ai"
   ],
-  "author": "PDF SaaS Platform",
+  "author": "Miyami PDF Tool",
   "license": "MIT",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.22.0",

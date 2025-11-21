@@ -1,6 +1,6 @@
 # 🎉 MCP Server Setup Complete!
 
-Your PDF SaaS MCP Server has been created and is ready to use with Claude Desktop.
+Your Miyami PDF Tool MCP Server has been created and is ready to use with Claude Desktop.
 
 ## ✅ What's Been Created
 

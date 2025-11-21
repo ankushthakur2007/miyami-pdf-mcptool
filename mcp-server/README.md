@@ -1,4 +1,4 @@
-# PDF SaaS MCP Server
+# Miyami PDF Tool - MCP Server
 
 Advanced PDF generation and manipulation server for Claude Desktop using the Model Context Protocol (MCP).
 

@@ -7,7 +7,7 @@ export default function HomePage() {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
       <div className="container mx-auto px-4 py-16">
         <nav className="flex justify-between items-center mb-16">
-          <div className="text-2xl font-bold text-blue-600">PDF SaaS</div>
+          <div className="text-2xl font-bold text-blue-600">Miyami PDF Tool</div>
           <div className="space-x-4">
             <Link href="/login">
               <Button variant="outline">Sign In</Button>
@@ -20,7 +20,7 @@ export default function HomePage() {
 
         <div className="text-center max-w-4xl mx-auto mb-16">
           <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-            AI-Powered PDF Generation API
+            Miyami PDF Tool
           </h1>
           <p className="text-xl text-gray-600 mb-8">
             Convert HTML, Markdown, and URLs to beautiful PDFs in seconds.

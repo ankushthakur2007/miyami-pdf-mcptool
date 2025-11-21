@@ -1,4 +1,4 @@
-# AI-Powered PDF Generation SaaS Platform
+# Miyami PDF Tool
 
 A production-ready SaaS platform for generating PDFs from HTML, Markdown, text, and URLs with API key management, rate limiting, and cloud storage.
 
